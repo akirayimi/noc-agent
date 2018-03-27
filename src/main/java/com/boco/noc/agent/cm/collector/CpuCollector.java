@@ -18,11 +18,4 @@ public class CpuCollector extends AbstractCollector<Cpu>{
 			new LinuxCpuCommand(info);
 		}
 	}
-	public static void main(String[] args) throws Exception {
-		Process process = Runtime.getRuntime().exec("systeminfo");
-		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-		String s;
-		while((s=bufferedReader.readLine()) != null)
-		System.out.println(s);
-	}
 }
