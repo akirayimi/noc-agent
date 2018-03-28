@@ -1,26 +1,27 @@
 package com.boco.noc.agent.cm.collector.command.linux;
 
 import com.boco.noc.agent.cm.collector.command.CpuCommand;
-import com.boco.noc.agent.cm.information.Cpu;
+import com.boco.noc.agent.cm.info.CfgInfo;
+import com.boco.noc.agent.cm.info.CpuInfo;
 
 public class LinuxCpuCommand extends CpuCommand {
 
-	public LinuxCpuCommand(Cpu info) {
+	public LinuxCpuCommand(CpuInfo info) {
 		putInfo(info);
 		putPhysCnt(info);
 		putCoreCnt(info);
 	}
 
 	@Override
-	protected void putInfo(Cpu info) {
+	protected void putInfo(CfgInfo info) {
 	}
 
 	@Override
-	protected void putPhysCnt(Cpu info) {
+	protected void putPhysCnt(CfgInfo info) {
 	}
 
 	@Override
-	protected void putCoreCnt(Cpu info) {
+	protected void putCoreCnt(CfgInfo info) {
 	}
 
 }

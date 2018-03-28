@@ -2,13 +2,11 @@ package com.boco.noc.agent.cm.collector;
 
 import org.apache.log4j.Logger;
 
-import com.boco.noc.agent.cm.information.CfgInfo;
+import com.boco.noc.agent.cm.info.CfgInfo;
 import com.boco.noc.agent.util.LogUtils;
 
 public abstract class AbstractCollector<T extends CfgInfo> implements Collector<T>{
 	T info;
-	private static final Logger logger = Logger.getLogger(AbstractCollector.class);
-	
 	
 	@Override
 	public void stop() {
@@ -19,9 +17,10 @@ public abstract class AbstractCollector<T extends CfgInfo> implements Collector<
 
 	@Override
 	public Collector<T> start(){
-		LogUtils.logInfo(logger, this.getClass().getSimpleName() + " start.");
+		Logger specifiedLogger = Logger.getLogger(this.getClass());
+		LogUtils.logInfo(specifiedLogger, this.getClass().getSimpleName() + " start.");
 		_start();
-		LogUtils.logInfo(logger, this.getClass().getSimpleName() + " successfully end.");
+		LogUtils.logInfo(specifiedLogger, this.getClass().getSimpleName() + " successfully end.");
 		return this;
 	}
 

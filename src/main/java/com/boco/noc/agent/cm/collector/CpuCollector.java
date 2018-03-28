@@ -1,17 +1,14 @@
 package com.boco.noc.agent.cm.collector;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-
 import com.boco.noc.agent.Global;
 import com.boco.noc.agent.cm.collector.command.linux.LinuxCpuCommand;
 import com.boco.noc.agent.cm.collector.command.windows.WinCpuCommand;
-import com.boco.noc.agent.cm.information.Cpu;
+import com.boco.noc.agent.cm.info.CpuInfo;
 
-public class CpuCollector extends AbstractCollector<Cpu>{
+public class CpuCollector extends AbstractCollector<CpuInfo>{
 	@Override
 	protected void _start() {
-		info = new Cpu();
+		info = new CpuInfo();
 		if (Global.CURRENT_OS == Global.OSType.WINDOWS){
 			new WinCpuCommand(info);
 		} else if (Global.CURRENT_OS == Global.OSType.LINUX){

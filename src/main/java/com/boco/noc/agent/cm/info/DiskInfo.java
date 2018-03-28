@@ -1,11 +1,12 @@
-package com.boco.noc.agent.cm.information;
+package com.boco.noc.agent.cm.info;
 
 /**
  * the information of disk.
  * @author someone
  *
  */
-public class Disk extends AbstractCfgInfo{
+@SuppressWarnings("serial")
+public class DiskInfo extends AbstractCfgInfo{
 	@Identifier
 	public final static String TOTAL_SIZE = "cm.disk.diskSpace";
 }

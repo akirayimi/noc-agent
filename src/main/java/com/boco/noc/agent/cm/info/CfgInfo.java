@@ -1,8 +1,7 @@
-package com.boco.noc.agent.cm.information;
+package com.boco.noc.agent.cm.info;
 
 import java.io.Serializable;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * the super class of config information.
@@ -18,7 +17,5 @@ public interface CfgInfo extends Iterable<Map.Entry<String, String>>, Serializab
 	
 	void put(String identifer, String value);
 	String get(String identifer);
-	
-	
 }
 

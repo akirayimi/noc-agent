@@ -1,13 +1,12 @@
-package com.boco.noc.agent.cm.information;
-
-import java.util.Iterator;
+package com.boco.noc.agent.cm.info;
 
 /**
  * the information of cpu.
  * @author someone
  *
  */
-public class Cpu extends AbstractCfgInfo{
+@SuppressWarnings("serial")
+public class CpuInfo extends AbstractCfgInfo{
 	@Identifier
 	public final static String INFO = "cm.cpu.cpuInfo";
 	@Identifier

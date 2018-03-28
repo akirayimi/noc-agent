@@ -1,14 +1,14 @@
 package com.boco.noc.agent.cm.collector;
 
-import com.boco.noc.agent.cm.information.OperatingSystem;
+import com.boco.noc.agent.cm.info.OsInfo;
 
-public class OSCollector extends AbstractCollector<OperatingSystem>{
+public class OSCollector extends AbstractCollector<OsInfo>{
 	@Override
 	protected void _start() {
-		info = new OperatingSystem();
-		info.put(OperatingSystem.RELEASE_TYPE, System.getProperty("os.name"));
-		info.put(OperatingSystem.HOST_NAME, System.getProperty("user.name"));
-		info.put(OperatingSystem.VERSION, System.getProperty("os.version"));
+		info = new OsInfo();
+		info.put(OsInfo.RELEASE_TYPE, System.getProperty("os.name"));
+		info.put(OsInfo.HOST_NAME, System.getProperty("user.name"));
+		info.put(OsInfo.VERSION, System.getProperty("os.version"));
 	}
 	
 	public static void main(String[] args) {

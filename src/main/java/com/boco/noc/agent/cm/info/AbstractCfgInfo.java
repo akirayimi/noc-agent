@@ -1,18 +1,16 @@
-package com.boco.noc.agent.cm.information;
+package com.boco.noc.agent.cm.info;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
-
-import com.boco.noc.agent.util.LogUtils;
-
 import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
 
+import com.boco.noc.agent.util.LogUtils;
+
+@SuppressWarnings("serial")
 public abstract class AbstractCfgInfo implements CfgInfo{
 	protected Map<String, String> map = new HashMap<String, String>();
 	@Override

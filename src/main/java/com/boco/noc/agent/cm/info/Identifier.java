@@ -1,4 +1,4 @@
-package com.boco.noc.agent.cm.information;
+package com.boco.noc.agent.cm.info;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

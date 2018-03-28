@@ -1,11 +1,12 @@
-package com.boco.noc.agent.cm.information;
+package com.boco.noc.agent.cm.info;
 
 /**
  * the information of memory.
  * @author someone
  *
  */
-public class Memory extends AbstractCfgInfo{
+@SuppressWarnings("serial")
+public class MemoryInfo extends AbstractCfgInfo{
 	@Identifier
 	public final static String TOTAL_SIZE = "cm.memory.memTotal";
 }

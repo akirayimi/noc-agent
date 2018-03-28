@@ -1,35 +1,30 @@
 package com.boco.noc.agent.cm.collector.command;
 
-import com.boco.noc.agent.cm.collector.command.windows.WinCpuCommand;
-import com.boco.noc.agent.cm.information.Cpu;
+import com.boco.noc.agent.cm.info.CfgInfo;
+import com.boco.noc.agent.cm.info.CpuInfo;
 
 public abstract class CpuCommand extends AbstractCommand{
-	private final static String INFO = "cm.cpu.cpuInfo";
-	private final static String PHYSICAL_COUNT = "cm.cpu.physicalId";
-	private final static String CORE_COUNT = "cm.cpu.cores";
-	
-
 	/**
-	 * get the INFO, and put into the cpu incofmation map.
+	 * get the INFO, and put it into the CPU information map.
 	 * @param info
-	 * @see Cpu#INFO
+	 * @see CpuInfo#INFO
 	 * @return
 	 */
-	protected abstract void putInfo(Cpu info);
+	protected abstract void putInfo(CfgInfo info);
 	
 	/**
-	 * get the PHYSICAL_COUNTs, and put into the cpu incofmation map.
+	 * get the PHYSICAL_COUNTs, and put it into the CPU information map.
 	 * @param info
-	 * @see Cpu#PHYSICAL_COUNT
+	 * @see CpuInfo#PHYSICAL_COUNT
 	 * @return
 	 */
-	protected abstract void putPhysCnt(Cpu info);
+	protected abstract void putPhysCnt(CfgInfo info);
 	
 	/**
-	 * get the CORE_COUNT, and put into the cpu incofmation map.
-	 * @see Cpu#CORE_COUNT
+	 * get the CORE_COUNT, and put it into the CPU information map.
+	 * @see CpuInfo#CORE_COUNT
 	 * @param info
 	 * @return
 	 */
-	protected abstract void putCoreCnt(Cpu info);
+	protected abstract void putCoreCnt(CfgInfo info);
 }

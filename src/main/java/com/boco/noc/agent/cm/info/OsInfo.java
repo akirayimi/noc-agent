@@ -1,11 +1,12 @@
-package com.boco.noc.agent.cm.information;
+package com.boco.noc.agent.cm.info;
 
 /**
  * the information of operating system.
  * @author someone
  *
  */
-public class OperatingSystem extends AbstractCfgInfo{
+@SuppressWarnings("serial")
+public class OsInfo extends AbstractCfgInfo{
 	@Identifier
 	public final static String HOST_NAME = "cm.os.hostName";
 	@Identifier
