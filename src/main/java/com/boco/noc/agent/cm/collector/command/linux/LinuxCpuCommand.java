@@ -6,7 +6,7 @@ import com.boco.noc.agent.cm.info.CpuInfo;
 
 public class LinuxCpuCommand extends CpuCommand {
 
-	public LinuxCpuCommand(CpuInfo info) {
+	public LinuxCpuCommand(CfgInfo info) {
 		putInfo(info);
 		putPhysCnt(info);
 		putCoreCnt(info);

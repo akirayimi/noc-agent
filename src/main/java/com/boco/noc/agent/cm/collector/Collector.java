@@ -1,9 +1,10 @@
 package com.boco.noc.agent.cm.collector;
 
+import java.util.concurrent.Callable;
+
 import com.boco.noc.agent.cm.info.CfgInfo;
 
-public interface Collector<T extends CfgInfo> {
+public interface Collector extends Callable<CfgInfo>{
 	void stop();
-	Collector<? extends CfgInfo> start();
-	T get();
+	CfgInfo get();
 }

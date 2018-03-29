@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.concurrent.locks.ReentrantLock;
 
 import org.apache.log4j.Logger;
@@ -19,13 +22,13 @@ import com.boco.noc.agent.util.LogUtils;
 
 public class CollectorFactory {
 	private final static Logger logger = Logger.getLogger(CollectorFactory.class);
-	private final static Map<String, Collector<? extends CfgInfo>> collectorMap = new HashMap<String, Collector<? extends CfgInfo>>();
+	private final static Map<String, Collector> collectorMap = new HashMap<String, Collector>();
 	
 	private final static ReentrantLock lock = new ReentrantLock();
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public static Collector<? extends CfgInfo> getCollector(Class<? extends Collector> clazz) {
-		Collector<? extends CfgInfo> c = collectorMap.get(clazz.getCanonicalName());
+	public static Collector getCollector(Class<? extends Collector> clazz) {
+		Collector c = collectorMap.get(clazz.getCanonicalName());
 		if (c == null) {
 			lock.lock();
 			try {
@@ -43,18 +46,23 @@ public class CollectorFactory {
 		return c;
 	}
 
-	@SuppressWarnings("rawtypes")
-	public static void main(String[] args) {
-		List<Class<? extends Collector>> colList = new ArrayList<Class<? extends Collector>>();
-		colList.add(DiskCollector.class);
-		colList.add(CpuCollector.class);
-		colList.add(OSCollector.class);
-		colList.add(MemoryCollector.class);
+	public static void main(String[] args) throws InterruptedException, ExecutionException {
+		List<Future<CfgInfo>> results = new ArrayList<Future<CfgInfo>>();
+		ExecutorService exec = Executors.newCachedThreadPool();
+		results.add(exec.submit(getCollector(CpuCollector.class)));
+		results.add(exec.submit(getCollector(CpuCollector.class)));
+		results.add(exec.submit(getCollector(CpuCollector.class)));
+		results.add(exec.submit(getCollector(CpuCollector.class)));
+		results.add(exec.submit(getCollector(DiskCollector.class)));
+		results.add(exec.submit(getCollector(MemoryCollector.class)));
+		results.add(exec.submit(getCollector(OSCollector.class)));
+		results.add(exec.submit(getCollector(OSCollector.class)));
+		results.add(exec.submit(getCollector(OSCollector.class)));
+		results.add(exec.submit(getCollector(OSCollector.class)));
 		
-		for (Class<? extends Collector> clazz : colList){
-			for (Entry<String, String> entry :getCollector(clazz).start().get()){
-				System.out.println(entry.getKey() + ": " + entry.getValue());
-			}
+		exec.shutdown();
+		for (Future<CfgInfo> f : results){
+			System.out.println(f.get());
 		}
 	}
 }

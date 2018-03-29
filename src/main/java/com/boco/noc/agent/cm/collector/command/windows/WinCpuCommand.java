@@ -5,7 +5,7 @@ import com.boco.noc.agent.cm.info.CfgInfo;
 import com.boco.noc.agent.cm.info.CpuInfo;
 
 public class WinCpuCommand extends CpuCommand{
-	public WinCpuCommand(CpuInfo info) {
+	public WinCpuCommand(CfgInfo info) {
 		putInfo(info);putPhysCnt(info);putCoreCnt(info);
 	}
 

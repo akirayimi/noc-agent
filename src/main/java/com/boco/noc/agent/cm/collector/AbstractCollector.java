@@ -5,30 +5,30 @@ import org.apache.log4j.Logger;
 import com.boco.noc.agent.cm.info.CfgInfo;
 import com.boco.noc.agent.util.LogUtils;
 
-public abstract class AbstractCollector<T extends CfgInfo> implements Collector<T>{
-	T info;
+public abstract class AbstractCollector implements Collector{
+	@Override
+	public CfgInfo call() throws Exception {
+		return get();
+	}
 	
 	@Override
 	public void stop() {
 		
 	}
 	
-	protected abstract void _start();
+	protected abstract CfgInfo _start();
 
-	@Override
-	public Collector<T> start(){
+	protected CfgInfo start(){
 		Logger specifiedLogger = Logger.getLogger(this.getClass());
 		LogUtils.logInfo(specifiedLogger, this.getClass().getSimpleName() + " start.");
-		_start();
+		CfgInfo info = _start();
 		LogUtils.logInfo(specifiedLogger, this.getClass().getSimpleName() + " successfully end.");
-		return this;
-	}
-
-	@Override
-	public T get(){
-		if (info == null)
-			throw new CollectorNotStartException();
 		return info;
+	}
+	
+	@Override
+	public CfgInfo get(){
+		return start();
 	}
 
 }

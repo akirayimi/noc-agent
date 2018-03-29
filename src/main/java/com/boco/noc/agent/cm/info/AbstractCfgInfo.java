@@ -8,6 +8,7 @@ import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
 
+import com.alibaba.fastjson.JSON;
 import com.boco.noc.agent.util.LogUtils;
 
 @SuppressWarnings("serial")
@@ -46,5 +47,10 @@ public abstract class AbstractCfgInfo implements CfgInfo{
 		}
 		LogUtils.logInfo(logger, " get alias name map " + map);
 		return map;
+	}
+	
+	@Override
+	public String toString() {
+		return JSON.toJSONString(map);
 	}
 }

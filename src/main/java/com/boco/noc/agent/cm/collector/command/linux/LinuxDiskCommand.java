@@ -6,7 +6,7 @@ import com.boco.noc.agent.cm.info.DiskInfo;
 
 public class LinuxDiskCommand extends DiskCommand{
 
-	public LinuxDiskCommand(DiskInfo info) {
+	public LinuxDiskCommand(CfgInfo info) {
 		putTotalSize(info);
 	}
 

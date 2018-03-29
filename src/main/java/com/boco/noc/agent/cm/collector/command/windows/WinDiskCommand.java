@@ -5,13 +5,13 @@ import com.boco.noc.agent.cm.info.DiskInfo;
 
 public class WinDiskCommand extends WinStorageCommand{
 
-	public WinDiskCommand(DiskInfo info) {
+	public WinDiskCommand(CfgInfo info) {
 		putTotalSize(info);
 	}
 
 	@Override
 	protected void putTotalSize(CfgInfo info) {
-		super.putTotalSize(info, DiskInfo.TOTAL_SIZE, "wmic diskdrive get Model,Size");
+		super.putTotalSize(info, DiskInfo.TOTAL_SIZE, "wmic diskdrive get Model", "wmic diskdrive get Model,Size");
 	}
 	
 
