@@ -33,7 +33,7 @@ public abstract class WinStorageCommand extends DiskCommand {
 		results = modelSizeEcho.split(Global.LINE_SEPERATOR);
 		if (results != null && results.length > 1) {
 			for (int i = 1; i < results.length; i++) {
-				totalGB = putSizeInMap(list, results[i]);
+				totalGB += putSizeInMap(list, results[i]);
 			}
 		}
 		
@@ -50,7 +50,7 @@ public abstract class WinStorageCommand extends DiskCommand {
 				String sizeStr = echoLine.replace(model, Global.BLANK);
 				long size = Long.valueOf(sizeStr.trim());
 				ssd.setSize(size);
-				total += (size >> 30);
+				total = (int) (size >> 30);
 			}
 		}
 		return total;

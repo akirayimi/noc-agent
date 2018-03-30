@@ -50,14 +50,8 @@ public class CollectorFactory {
 		List<Future<CfgInfo>> results = new ArrayList<Future<CfgInfo>>();
 		ExecutorService exec = Executors.newCachedThreadPool();
 		results.add(exec.submit(getCollector(CpuCollector.class)));
-		results.add(exec.submit(getCollector(CpuCollector.class)));
-		results.add(exec.submit(getCollector(CpuCollector.class)));
-		results.add(exec.submit(getCollector(CpuCollector.class)));
 		results.add(exec.submit(getCollector(DiskCollector.class)));
 		results.add(exec.submit(getCollector(MemoryCollector.class)));
-		results.add(exec.submit(getCollector(OSCollector.class)));
-		results.add(exec.submit(getCollector(OSCollector.class)));
-		results.add(exec.submit(getCollector(OSCollector.class)));
 		results.add(exec.submit(getCollector(OSCollector.class)));
 		
 		exec.shutdown();
