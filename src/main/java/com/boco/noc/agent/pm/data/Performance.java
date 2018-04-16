@@ -1,4 +1,4 @@
-package com.boco.noc.agent.pm;
+package com.boco.noc.agent.pm.data;
 
 public class Performance {
 	String name;

@@ -1,11 +1,10 @@
-package com.boco.noc.agent.pm;
+package com.boco.noc.agent.pm.checker;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import com.boco.noc.agent.Global;
 import com.boco.noc.agent.Global.OSType;
-import com.boco.noc.agent.pm.linux.LinuxChecker;
 
 public class SelectChecker {
 	private static Map<OSType, Checker> checkerPool = new ConcurrentHashMap<OSType, Checker>();

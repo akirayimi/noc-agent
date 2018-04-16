@@ -1,12 +1,11 @@
-package com.boco.noc.agent.pm.linux;
+package com.boco.noc.agent.pm.checker;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.boco.noc.agent.pm.Checker;
-import com.boco.noc.agent.pm.Performance;
-import com.boco.noc.agent.pm.ResultData;
+import com.boco.noc.agent.pm.data.Performance;
+import com.boco.noc.agent.pm.data.ResultData;
 import com.boco.noc.agent.util.RuntimeExecutor;
 
 public class LinuxChecker implements Checker{

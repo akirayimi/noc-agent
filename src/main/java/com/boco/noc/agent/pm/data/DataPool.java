@@ -1,9 +1,9 @@
-package com.boco.noc.agent.pm;
+package com.boco.noc.agent.pm.data;
 
 import java.util.HashMap;
 import java.util.List;
 
-import com.boco.noc.agent.pm.linux.LinuxChecker;
+import com.boco.noc.agent.pm.checker.LinuxChecker;
 
 public class DataPool {
 	final static HashMap<String, ResultData> dataPool = new HashMap<String, ResultData>();
