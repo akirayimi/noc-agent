@@ -26,10 +26,9 @@ public class CollectorFactory {
 	
 	private final static ReentrantLock lock = new ReentrantLock();
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static Collector getCollector(Class<? extends Collector> clazz) {
 		Collector c = collectorMap.get(clazz.getCanonicalName());
-		if (c == null) {
+		if (c == null){
 			lock.lock();
 			try {
 				c = collectorMap.get(clazz.getCanonicalName());
@@ -49,14 +48,14 @@ public class CollectorFactory {
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
 		List<Future<CfgInfo>> results = new ArrayList<Future<CfgInfo>>();
 		ExecutorService exec = Executors.newCachedThreadPool();
+		results.add(exec.submit(getCollector(OSCollector.class)));
 		results.add(exec.submit(getCollector(CpuCollector.class)));
 		results.add(exec.submit(getCollector(DiskCollector.class)));
 		results.add(exec.submit(getCollector(MemoryCollector.class)));
-		results.add(exec.submit(getCollector(OSCollector.class)));
-		
-		exec.shutdown();
+		exec.shutdown();           
 		for (Future<CfgInfo> f : results){
 			System.out.println(f.get());
 		}
 	}
+	
 }

@@ -1,21 +1,19 @@
 package com.boco.noc.agent.cm.collector.command.windows;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 
 import com.alibaba.fastjson.JSONObject;
 import com.boco.noc.agent.Global;
 import com.boco.noc.agent.cm.collector.command.DiskCommand;
 import com.boco.noc.agent.cm.info.CfgInfo;
+import com.boco.noc.agent.util.RuntimeExecutor;
 
 public abstract class WinStorageCommand extends DiskCommand {
 	
 	
 	protected void putTotalSize(CfgInfo info, String identifier, String modelCmd, String modelSizeCmd) {
-		String modelEcho = exec(modelCmd);
+		String modelEcho = RuntimeExecutor.run(modelCmd);
 		String[] results = modelEcho.split(Global.LINE_SEPERATOR);
 		JSONObject jobj = new JSONObject();
 		List<SingleStorageDetail> list = new ArrayList<SingleStorageDetail>();
@@ -29,7 +27,7 @@ public abstract class WinStorageCommand extends DiskCommand {
 			}
 		}
 		
-		String modelSizeEcho = exec(modelSizeCmd);
+		String modelSizeEcho = RuntimeExecutor.run(modelSizeCmd);
 		results = modelSizeEcho.split(Global.LINE_SEPERATOR);
 		if (results != null && results.length > 1) {
 			for (int i = 1; i < results.length; i++) {

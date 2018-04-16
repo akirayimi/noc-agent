@@ -11,12 +11,17 @@ public class LogUtils {
 	static {
 		Logger rootLogger = Logger.getRootLogger();
         rootLogger.setLevel(Level.INFO);
-        rootLogger.addAppender(new ConsoleAppender(new PatternLayout("[%p] %c: %m%n")));
+        rootLogger.addAppender(new ConsoleAppender(new PatternLayout("[%p] [%d{yyyy-MM-dd HH:mm:ss.SSS}] %c: %m%n")));
 	}
 	
 	public static void logError(Logger logger, String msg, Throwable t){
 		logger.error(msg + t);
 		t.printStackTrace();
+	}
+	
+	public static void logError(Logger logger, String msg){
+		logger.error(msg);
+		//t.printStackTrace();
 	}
 	
 	public static void logError(Logger logger, Object obj, Throwable t){

@@ -1,0 +1,52 @@
+ 
+  <OS_Performance_Set >
+
+  <OS Version="CentOS release 6.4 (Final)">
+    <!-- 
+    name:         指标英文名称；  严格按照 指标名称定义规则来制定；
+    zhname:      指标中文名称；
+    frequency:    执行频率
+    filePath:     该指标的shell脚本的存放路径；需要是 完整路径或者 相对路径；
+    -->
+    
+    <!-- CPU -->
+    <performance name="30" zhname="" frequency="30" filePath="/opt/boco/home/agent/CentOS release 6.4 (Final)/cm.os.vendorName.sh" ></performance>
+    <performance name="50" zhname="" frequency="50" filePath="/opt/boco/home/agent/CentOS release 6.4 (Final)/cm.netwrok.ipAdress.sh" ></performance>
+    <performance name="20" zhname="" frequency="20" filePath="/opt/boco/home/agent/CentOS release 6.4 (Final)/cm.netwrok.macAdress.sh" ></performance>
+  
+     <!-- memory -->
+    <performance name="70" zhname="" frequency="70" filePath="/opt/boco/home/agent/CentOS release 6.4 (Final)/cm.os.vendorName.sh" ></performance>
+    <performance name="60" zhname="" frequency="60" filePath="/opt/boco/home/agent/CentOS release 6.4 (Final)/cm.netwrok.ipAdress.sh" ></performance>
+    <performance name="60" zhname="" frequency="60" filePath="/opt/boco/home/agent/CentOS release 6.4 (Final)/cm.netwrok.macAdress.sh" ></performance>
+  
+     <!-- Disk -->
+  
+  
+  </OS>
+  
+  <OS Version="Red Hat Enterprise Linux Server release 5.6 (Tikanga)">
+    <!-- 
+    name:         指标英文名称；  严格按照 指标名称定义规则来制定；
+    zhname:      指标中文名称；
+    frequency:    执行频率
+    filePath:     该指标的shell脚本的存放路径；需要是 完整路径或者 相对路径；
+    -->
+    <performance name="cm.os.vendorName" zhname="" frequency="1200" filePath="/opt/boco/home/agent/CentOS release 6.4 (Final)/cm.os.vendorName.sh" ></performance>
+    <performance name="cm.netwrok.ipAdress" zhname="" frequency="60" filePath="/opt/boco/home/agent/CentOS release 6.4 (Final)/cm.netwrok.ipAdress.sh" ></performance>
+    <performance name="cm.netwrok.macAdress" zhname="" frequency="60" filePath="/opt/boco/home/agent/CentOS release 6.4 (Final)/cm.netwrok.macAdress.sh" ></performance>
+  </OS>
+
+  <OS Version="Red Hat Enterprise Linux Server release 5.6 (Tikanga)">
+    <!-- 
+    name:         指标英文名称；  严格按照 指标名称定义规则来制定；
+    zhname:      指标中文名称；
+    frequency:    执行频率
+    filePath:     该指标的shell脚本的存放路径；需要是 完整路径或者 相对路径；
+    -->
+    <performance name="cm.os.vendorName" zhname="" frequency="60" filePath="/opt/boco/home/agent/CentOS release 6.4 (Final)/cm.os.vendorName.sh" ></performance>
+    <performance name="cm.netwrok.ipAdress" zhname="" frequency="60" filePath="/opt/boco/home/agent/CentOS release 6.4 (Final)/cm.netwrok.ipAdress.sh" ></performance>
+    <performance name="cm.netwrok.macAdress" zhname="" frequency="60" filePath="/opt/boco/home/agent/CentOS release 6.4 (Final)/cm.netwrok.macAdress.sh" ></performance>
+  </OS>
+
+
+</OS_Performance_Set>
