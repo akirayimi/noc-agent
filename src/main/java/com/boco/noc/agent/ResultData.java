@@ -1,4 +1,4 @@
-package com.boco.noc.agent.pm.data;
+package com.boco.noc.agent;
 
 /**
  * after one 
@@ -54,5 +54,11 @@ public class ResultData {
 	}
 	public void setStep(String step) {
 		this.step = step;
+	}
+	@Override
+	public String toString() {
+		return "{\"metric\":\"" + metric + "\",\"endpoint\":\"" + endpoint + "\",\"tags\":\"" + tags + "\",\"value\":\""
+				+ value + "\",\"timestamp\":\"" + timestamp + "\",\"counterType\":\"" + counterType + "\",\"step\":\""
+				+ step + "\"} ";
 	}
 }

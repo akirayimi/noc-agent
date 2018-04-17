@@ -3,6 +3,7 @@ package com.boco.noc.agent.pm.data;
 import java.util.HashMap;
 import java.util.List;
 
+import com.boco.noc.agent.ResultData;
 import com.boco.noc.agent.pm.checker.LinuxChecker;
 
 public class DataPool {

@@ -4,8 +4,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.boco.noc.agent.ResultData;
 import com.boco.noc.agent.pm.data.Performance;
-import com.boco.noc.agent.pm.data.ResultData;
 import com.boco.noc.agent.util.RuntimeExecutor;
 
 public class LinuxChecker implements Checker{

@@ -1,35 +1,30 @@
 package com.boco.noc.agent.schedule;
 
-import org.quartz.CronExpression;
-import org.quartz.CronTrigger;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.quartz.SchedulerFactory;
+import org.quartz.SimpleTrigger;
+import org.quartz.Trigger;
 import org.quartz.impl.StdSchedulerFactory;
-import org.quartz.impl.triggers.CronTriggerImpl;
+import org.quartz.impl.triggers.SimpleTriggerImpl;
+
+import com.boco.noc.agent.Config;
 
 public class CMSchedule {
 	public static void main(String[] args) throws SchedulerException {
-		new CMSchedule().task();
+		new CMSchedule().start();
 	}
-	public void task() throws SchedulerException {
+	
+	public void start() throws SchedulerException {
 		SchedulerFactory schedulerFactory = new StdSchedulerFactory();
 		Scheduler scheduler = schedulerFactory.getScheduler();
-
-
 		JobDetail jobDetail = JobBuilder.newJob(CMJob.class).build();
-		CronTrigger trigger = new CronTriggerImpl("cronTrigger", "triggerGroup2");
-		
-		try {
-			CronExpression cexp = new CronExpression("*/10 * * * *");
-			((CronTriggerImpl) trigger).setCronExpression(cexp);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		@SuppressWarnings("deprecation")
+		Trigger trigger = new SimpleTriggerImpl("trigger",
+                SimpleTrigger.REPEAT_INDEFINITELY, Config.CM_FREQUENCY * 3600 * 1000L);
 		scheduler.scheduleJob(jobDetail, trigger);
-
 		scheduler.start();
 	}
 }

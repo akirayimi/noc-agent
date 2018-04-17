@@ -1,7 +1,7 @@
 package com.boco.noc.agent.pm.checker;
 
+import com.boco.noc.agent.ResultData;
 import com.boco.noc.agent.pm.data.Performance;
-import com.boco.noc.agent.pm.data.ResultData;
 
 public interface Checker{
 	/**

@@ -9,6 +9,4 @@ public class CpuCollector extends AbstractCollector{
 		CfgInfo info = new CpuInfo();
 		return _start0(info, "CpuCommand");
 	}
-
-	
 }

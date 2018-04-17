@@ -22,7 +22,12 @@ import com.boco.noc.agent.pm.data.Performance;
 import com.boco.noc.agent.pm.data.PerformanceGen;
 
 public class PMSchedule {
-	public static void main(String[] args) throws SchedulerException, ParseException, FileNotFoundException {
+	
+	public static void main(String[] args) throws FileNotFoundException, SchedulerException, ParseException {
+		new PMSchedule().start();
+	}
+	
+	public static void start() throws SchedulerException, ParseException, FileNotFoundException {
 		System.setErr(new PrintStream(new File("d://err.log")));
 		SchedulerFactory schedulerFactory = new StdSchedulerFactory();
 		Scheduler scheduler = schedulerFactory.getScheduler();
