@@ -10,8 +10,12 @@ public class LogUtils {
 	
 	static {
 		Logger rootLogger = Logger.getRootLogger();
-        rootLogger.setLevel(Level.INFO);
+        rootLogger.setLevel(Level.DEBUG);
         rootLogger.addAppender(new ConsoleAppender(new PatternLayout("[%p] [%d{yyyy-MM-dd HH:mm:ss.SSS}] %c: %m%n")));
+	}
+	
+	public static void logDebug(Logger logger, String msg){
+		logger.debug(msg);
 	}
 	
 	public static void logError(Logger logger, String msg, Throwable t){

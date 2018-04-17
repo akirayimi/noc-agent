@@ -19,8 +19,13 @@ public class PMJob implements Job{
 		Performance p = (Performance)(context.getJobDetail().getJobDataMap().get("performance"));
 		ResultData r = (ResultData)(context.getJobDetail().getJobDataMap().get("resultData"));
 		//SelectChecker.select().check(p, r);
-		String val = "[" + new SimpleDateFormat("HH:mm:ss").format(new Date()) + "]" + p.getName();
-		NettyClient.send(val);
+		StringBuilder val = new StringBuilder();
+		val.append("[")
+			.append(new SimpleDateFormat("HH:mm:ss").format(new Date()))
+			.append("]")
+			.append(p.getName());
+		
+		NettyClient.send(val.toString());
 		System.out.println(val);
 	}
 }	

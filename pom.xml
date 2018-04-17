@@ -80,7 +80,7 @@
 					</descriptorRefs>
 					<archive>
 						<manifest>
-							<mainClass>com.boco.noc.agent.cm.collector.factory.CollectorFactory</mainClass>
+							<mainClass>com.boco.noc.agent.schedule.AgentApp</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
