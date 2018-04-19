@@ -11,11 +11,9 @@ import com.boco.noc.agent.util.RuntimeExecutor;
 
 public abstract class WinStorageCommand extends DiskCommand {
 	
-	
 	protected void putTotalSize(CfgInfo info, String identifier, String modelCmd, String modelSizeCmd) {
 		String modelEcho = RuntimeExecutor.run(modelCmd);
 		String[] results = modelEcho.split(Global.LINE_SEPERATOR);
-		JSONObject jobj = new JSONObject();
 		List<SingleStorageDetail> list = new ArrayList<SingleStorageDetail>();
 		int totalGB = 0;
 		
@@ -35,9 +33,12 @@ public abstract class WinStorageCommand extends DiskCommand {
 			}
 		}
 		
-		jobj.put("detail", list);
-		jobj.put("total", totalGB + "GB");
-		info.put(identifier, jobj.toJSONString());
+		StringBuilder sb = new StringBuilder(totalGB + "GB" + Global.SEPERATOR);
+		for (SingleStorageDetail ssd : list){
+			sb.append(ssd.getModel()).append("(").append(ssd.getSize()).append(")").append(";");
+		}
+		String result = sb.toString();
+		info.put(identifier, result);
 	}
 	
 	private int putSizeInMap(List<SingleStorageDetail> list, String echoLine){

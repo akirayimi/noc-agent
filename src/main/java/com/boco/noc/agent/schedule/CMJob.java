@@ -6,6 +6,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
 import org.quartz.Job;
@@ -21,6 +22,7 @@ import com.boco.noc.agent.cm.convert.Converter;
 import com.boco.noc.agent.cm.convert.StdConverter;
 import com.boco.noc.agent.cm.info.CfgInfo;
 import com.boco.noc.agent.communicate.NettyClient;
+import com.boco.noc.agent.util.LogUtils;
 
 public class CMJob implements Job {
 	private static Logger logger = Logger.getLogger(CMJob.class);
@@ -41,12 +43,19 @@ public class CMJob implements Job {
 			try {
 				list.addAll(con.convert(f.get()));
 			} catch (InterruptedException | ExecutionException e) {
+				LogUtils.logError(logger, e);
 				e.printStackTrace();
 			}
 		}
 		for (ResultData data : list){
 			System.out.println(data.toString());
 			NettyClient.send(data.toString());
+			try {
+				TimeUnit.MILLISECONDS.sleep(200);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 }

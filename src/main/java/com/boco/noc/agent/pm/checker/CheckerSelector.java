@@ -6,7 +6,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import com.boco.noc.agent.Global;
 import com.boco.noc.agent.Global.OSType;
 
-public class SelectChecker {
+public class CheckerSelector {
 	private static Map<OSType, Checker> checkerPool = new ConcurrentHashMap<OSType, Checker>();
 	
 	static {

@@ -24,10 +24,19 @@ public class StdConverter implements Converter{
 		for (Entry<String, String> entry : info){
 			ResultData data = new ResultData();
 			data.setMetric(entry.getKey());
-			data.setValue(entry.getValue());
-			data.setCounterType("ConterType");
+			String value = entry.getValue();
+			
+			if (value.contains(Global.SEPERATOR)){
+				String[] valTag = value.split(Global.SEPERATOR);
+				data.setValue(valTag[0]);
+				data.setTags(valTag[1]);
+			} else {
+				data.setValue(value);
+				data.setTags(Global.BLANK);
+			}
+			
+			data.setCounterType("GAUGE");
 			data.setStep("24h");
-			data.setTags("");
 			data.setTimestamp(df.format(new Date()));
 			data.setEndpoint(Global.IP);
 			ret.add(data);

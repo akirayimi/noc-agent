@@ -9,7 +9,7 @@ import org.quartz.JobExecutionException;
 
 import com.boco.noc.agent.ResultData;
 import com.boco.noc.agent.communicate.NettyClient;
-import com.boco.noc.agent.pm.checker.SelectChecker;
+import com.boco.noc.agent.pm.checker.CheckerSelector;
 import com.boco.noc.agent.pm.data.Performance;
 
 public class PMJob implements Job{

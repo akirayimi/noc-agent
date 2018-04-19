@@ -9,6 +9,7 @@ public class Global {
 
 	public static final String LINE_SEPERATOR = System.getProperty("line.separator");
 	public static final String BLANK = "";
+	public static final String SEPERATOR = "#@#@#";
 	
 	public enum OSType {
 		WINDOWS, LINUX

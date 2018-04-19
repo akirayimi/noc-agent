@@ -1,64 +1,63 @@
 package com.boco.noc.agent;
 
+import com.alibaba.fastjson.JSONObject;
+
 /**
  * after one 
  * @author someone
  *
  */
 public class ResultData {
-	String metric;
-	String endpoint;
-	String tags;
-	String value;
-	String timestamp;
-	String counterType;
-	String step;
+	private JSONObject obj;
+	
+	public ResultData(){
+		this.obj = new JSONObject();
+	}
+	
 	public String getMetric() {
-		return metric;
+		return obj.getString("metric");
 	}
 	public void setMetric(String metric) {
-		this.metric = metric;
+		obj.put("metric", metric);
 	}
 	public String getEndpoint() {
-		return endpoint;
+		return obj.getString("endpoint");
 	}
 	public void setEndpoint(String endpoint) {
-		this.endpoint = endpoint;
+		obj.put("endpoint", endpoint);
 	}
 	public String getTags() {
-		return tags;
+		return obj.getString("tags");
 	}
 	public void setTags(String tags) {
-		this.tags = tags;
+		obj.put("tags", tags);
 	}
 	public String getValue() {
-		return value;
+		return obj.getString("value");
 	}
 	public void setValue(String value) {
-		this.value = value;
+		obj.put("value", value);
 	}
 	public String getTimestamp() {
-		return timestamp;
+		return obj.getString("timestamp");
 	}
 	public void setTimestamp(String timestamp) {
-		this.timestamp = timestamp;
+		obj.put("timestamp", timestamp);
 	}
 	public String getCounterType() {
-		return counterType;
+		return obj.getString("counterType");
 	}
 	public void setCounterType(String counterType) {
-		this.counterType = counterType;
+		obj.put("counterType", counterType);
 	}
 	public String getStep() {
-		return step;
+		return obj.getString("step");
 	}
 	public void setStep(String step) {
-		this.step = step;
+		obj.put("step", step);
 	}
 	@Override
 	public String toString() {
-		return "{\"metric\":\"" + metric + "\",\"endpoint\":\"" + endpoint + "\",\"tags\":\"" + tags + "\",\"value\":\""
-				+ value + "\",\"timestamp\":\"" + timestamp + "\",\"counterType\":\"" + counterType + "\",\"step\":\""
-				+ step + "\"} ";
+		return obj.toString();
 	}
 }
